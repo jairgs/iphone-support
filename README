@@ -1,0 +1,13 @@
+# Chatbot for iPhone Support
+Virtual AI assistant that can help with iPhone support topics. 
+It always retrieves semanthic context from the vector index.
+
+Simple RAG pipeline using:
+- LangChain
+- Faiss
+- Ollama or GPT-4 for chat model
+- nomic-embed-text for embeddings
+- Selenium for scraping the documents
+- Gradio
+
+This requires OpenAI api key to use 'GPT-4' model (default), otherwise it uses llama3.2 using local inference. 

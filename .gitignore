@@ -1,0 +1,64 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# VS Code settings
+.vscode/
+
+# PyCharm settings
+.idea/
+
+# macOS
+.DS_Store
+
+# Test and coverage results
+.coverage
+htmlcov/
+.tox/
+.nox/
+.cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# Build
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+
+# MyPy, Pylint, Pyright
+.mypy_cache/
+.pyright/
+.pyre/
+pylint-report.txt
+
+# Logs and debug files
+*.log
+
+# Local config
+*.env
+.env.*
+*.ini
+*.toml
+
+# SQLite and other local databases
+*.db
+*.sqlite3
+
+# Gradio app state (optional, if generated)
+gradio_cached_examples/
