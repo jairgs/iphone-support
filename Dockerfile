@@ -22,7 +22,7 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 COPY . .
 
 # Expose Gradio’s default port
-EXPOSE 8502
+EXPOSE 7860
 
 # Run the app
 CMD ["python", "chatbot_gradio.py"]
