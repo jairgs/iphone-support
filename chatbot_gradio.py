@@ -75,4 +75,4 @@ with gr.Blocks() as demo:
 
     gr.Markdown("This assistant uses RAG with iPhone support docs. Select your model and start chatting!")
 
-demo.launch()
+demo.launch(server_name="0.0.0.0")
