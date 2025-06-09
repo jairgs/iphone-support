@@ -1,11 +1,11 @@
 import gradio as gr
 from langchain.vectorstores import FAISS
-from langchain.embeddings import OllamaEmbeddings
-from langchain.chat_models import ChatOllama, ChatOpenAI
+from langchain.embeddings import OpenAIEmbeddings #OllamaEmbeddings
+from langchain.chat_models import ChatOpenAI # ChatOllama
 from langchain.schema import AIMessage, HumanMessage, SystemMessage
 
 # Load vector store
-db = FAISS.load_local("faiss_index", OllamaEmbeddings(model="nomic-embed-text"), allow_dangerous_deserialization=True)
+db = FAISS.load_local("faiss_index", OpenAIEmbeddings(), allow_dangerous_deserialization=True)
 
 def retrieve_context(query, k=3):
     docs = db.similarity_search(query, k=k)
@@ -13,8 +13,10 @@ def retrieve_context(query, k=3):
 
 # Helper to create LLM
 def initialize_llm(model_choice):
-    if model_choice == "llama3.2":
-        return ChatOllama(model="llama3.2", temperature=0.2)
+    # if model_choice == "llama3.2":
+    #     return ChatOllama(model="llama3.2", temperature=0.2)
+    if model_choice == "gpt-3.5-turbo":
+        return ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
     elif model_choice == "gpt-4":
         return ChatOpenAI(model_name="gpt-4", temperature=0)
     else:
@@ -58,7 +60,7 @@ with gr.Blocks() as demo:
     "<h1 style='text-align: center;'>📱 Apple iPhone Support Assistant (using RAG)</h1>"
 )
 
-    model_choice = gr.Dropdown(["llama3.2", "gpt-4"], label="Select Model", value="gpt-4")
+    model_choice = gr.Dropdown(["gpt-3.5-turbo", "gpt-4"], label="Select Model", value="gpt-4")
     chatbot = gr.Chatbot()
     msg = gr.Textbox(label="Ask a question", placeholder="e.g. How do I reset my iPhone?")
     llm_state = gr.State(value=None)
